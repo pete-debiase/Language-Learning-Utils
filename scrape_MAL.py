@@ -1,5 +1,5 @@
 #!/usr/bin/python
-"""Pulls information about shows from myanimelist.net."""
+"""Scrapes information about shows from myanimelist.net."""
 # Pete Adriano DeBiase
 # Created: 2018/01/16
 
