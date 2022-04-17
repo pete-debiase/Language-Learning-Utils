@@ -1,7 +1,5 @@
-#!/usr/bin/python
-"""For batch-renaming files."""
-# Pete Adriano DeBiase
-# Created: 2018/01/10
+#!/usr/bin/env python3
+"""Batch-rename files in a directory (2018/01/10)"""
 
 import os
 import re
