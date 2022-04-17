@@ -1,71 +1,82 @@
-#!/usr/bin/python
-"""Glue together subtitles to facilitate study in Anki."""
-# Pete Adriano DeBiase
-# Created: 2018/01/10
+#!/usr/bin/env python3
+"""Glue together subtitles to facilitate study in Anki (2018/01/10)"""
 
-import datetime
+from statistics import mean
 import os
-import srt # https://github.com/cdown/srt
 
-root_path = r'C:\Users\Pete\ALL\Japanese\SUBS2SRS\Movies and Shows\FLCL\JP Subs'
-match_pattern = 'FLCL'
-os.chdir(root_path)
-filenames = os.listdir()
-filenames = [filename for filename in filenames if match_pattern in filename]
+import pysrt
+import webvtt
 
-all_subs = []
-total_subs_length = 0
-unique_subs_length = 0
-glued_subs_length = 0
-for filename in filenames:
-    with open(filename, 'r', encoding='utf-8') as file:
-        subs = file.read()
-    subs = list(srt.parse(subs))
-    total_subs_length += len(subs)
-    for sub in subs:
-        sub.content = sub.content.replace('\n', '')
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Setup
+# └─────────────────────────────────────────────────────────────────────────────
+root_vtt = r'C:\Users\pete\ALL\Languages\ES\Orbiter 9\subs\vtt/'
+root_srt = r'C:\Users\pete\ALL\Languages\ES\Orbiter 9\subs\srt/'
+TARGET_DURATION_MS = 15000
 
-    # subs = [sub for sub in subs if sub.content not in all_subs]
-    unique_subs_length += len(subs)
-    all_subs.extend([sub.content for sub in subs])
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Convert VTT to SRT
+# └─────────────────────────────────────────────────────────────────────────────
+vtt_files = os.listdir(root_vtt)
+for filename in vtt_files:
+    vtt = webvtt.read(root_vtt + filename)
+    output_filename = root_srt + filename.replace('.vtt', '.srt')
+    with open(output_filename, 'w+', newline='\n', encoding='utf-8') as f:
+        vtt.write(f, format='srt')
 
-    # average_duration = sum([(sub.end - sub.start) for sub in subs], datetime.timedelta())/len(subs)
-    # print(average_duration)
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Sanitize SRT
+# └─────────────────────────────────────────────────────────────────────────────
+srt_files = [f for f in os.listdir(root_srt) if 'glued' not in f]
 
-    temp_sub = srt.Subtitle(1, datetime.timedelta(0, 0, 0), datetime.timedelta(0, 0, 0), '')
-    glued_subs = []
-    for i, sub in enumerate(subs):
-        if temp_sub.start == datetime.timedelta(0, 0, 0):
-            temp_sub.index = sub.index
-            temp_sub.start = sub.start
+for filename in srt_files:
+    srt = pysrt.open(root_srt + filename)
+    for sub in srt:
+        sub.text = sub.text_without_tags.replace('\n', ' ')
+    srt.save(root_srt + filename, encoding='utf-8')
 
-        if i < len(subs) - 1:
-            if (subs[i+1].start - sub.end) >= datetime.timedelta(0, 10, 0): # Avoid dead space.
-                temp_sub.end = sub.end
-                temp_sub.content += sub.content + '   '
-                glued_subs.append(temp_sub)
-                temp_sub = srt.Subtitle(1, datetime.timedelta(0, 0, 0), datetime.timedelta(0, 0, 0), '')
-                continue
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Glue SRT
+# └─────────────────────────────────────────────────────────────────────────────
+def glue_subs(index: int, buffer: list[pysrt.SubRipItem]) -> pysrt.SubRipItem:
+    start, end = buffer[0].start, buffer[-1].end
+    text = ' '.join([sub.text_without_tags for sub in buffer])
+    glued = pysrt.SubRipItem(index, start, end, text)
+    return glued
 
-        temp_sub.end = sub.end
-        temp_sub.content += sub.content + '   '
+srt_files = [f for f in os.listdir(root_srt) if 'glued' not in f]
+for filename in srt_files:
+    srt = pysrt.open(root_srt + filename)
 
-        if temp_sub.end - temp_sub.start >= datetime.timedelta(0, 34, 0):
-            glued_subs.append(temp_sub)
-            temp_sub = srt.Subtitle(1, datetime.timedelta(0, 0, 0), datetime.timedelta(0, 0, 0), '')
+    subs_glued, sub_buffer, index, process_buffer_flag = [], [], 1, False
+    for i, sub in enumerate(srt):
+        sub_buffer.append(sub)
 
-        if i == len(subs) - 1:
-            glued_subs.append(temp_sub)
-            temp_sub = srt.Subtitle(1, datetime.timedelta(0, 0, 0), datetime.timedelta(0, 0, 0), '')
+        # Too much deadtime until next sub
+        if i < len(srt) - 1:
+            deadtime = srt[i + 1].start.ordinal - sub.end.ordinal
+            if deadtime >= 7500: process_buffer_flag = True
 
-    for sub in glued_subs:
-        sub.content = sub.content.strip()
-    glued_subs_length += len(glued_subs)
+        # Sub buffer exceeds target duration
+        duration = sub_buffer[-1].end.ordinal - sub_buffer[0].start.ordinal
+        if duration >= TARGET_DURATION_MS: process_buffer_flag = True
 
-    output_path = root_path + '\\' + 'Glued\\' + filename
-    with open(output_path, 'w+', encoding='utf-8') as file:
-        file.write(srt.compose(glued_subs))
+        # Process buffer
+        if process_buffer_flag:
+            new_sub = glue_subs(index, sub_buffer)
+            subs_glued.append(new_sub)
+            process_buffer_flag = False
+            sub_buffer.clear()
+            index += 1
 
-print(f"Total Subs: {total_subs_length}")
-print(f"Unique Subs: {unique_subs_length}")
-print(f"Glued Subs: {glued_subs_length}")
+    # Display stats
+    durations = [_.duration.ordinal / 1000 for _ in subs_glued]
+    print(filename)
+    print(f'mean_duration: {mean(durations):.1f}')
+    print(f'max_duration: {max(durations):.1f}')
+    print(f'min_duration: {min(durations):.1f}\n')
+
+    # Output glued files
+    srt.data = subs_glued
+    output_filename = root_srt + 'glued/' + filename
+    srt.save(output_filename, encoding='utf-8')
