@@ -6,14 +6,14 @@
 import os
 import re
 
-root_path = r'C:\Users\Pete\ALL-P70\Japanese\SUBS2SRS\Movies and Shows\FLCL\JP Subs'
-match_pattern = 'FLCL'
-os.chdir(root_path)
-filenames = os.listdir()
-filenames = [filename for filename in filenames if match_pattern in filename]
+root = r'C:\Users\pete\ALL\Language\JA\SUBS2SRS\Movies and Shows\Hana Yori Dango\subs_ja'
+os.chdir(root)
 
-find = r'FLCL_(.*)\.srt'
-replace = r'FLCL_\1_JP.srt'
+match_pattern = '.srt'
+filenames = [f for f in os.listdir() if match_pattern in f]
 
-for filename in filenames:
-    os.rename(filename, re.sub(find, replace, filename))
+find = r'\.srt'
+replace = r'_ja.srt'
+for f in filenames:
+    print(re.sub(find, replace, f))
+    os.rename(f, re.sub(find, replace, f))

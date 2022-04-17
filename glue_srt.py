@@ -7,7 +7,7 @@ import datetime
 import os
 import srt # https://github.com/cdown/srt
 
-root_path = r'C:\Users\Pete\ALL-P70\Japanese\SUBS2SRS\Movies and Shows\FLCL\JP Subs'
+root_path = r'C:\Users\Pete\ALL\Japanese\SUBS2SRS\Movies and Shows\FLCL\JP Subs'
 match_pattern = 'FLCL'
 os.chdir(root_path)
 filenames = os.listdir()

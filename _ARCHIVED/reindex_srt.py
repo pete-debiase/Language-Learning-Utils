@@ -6,7 +6,7 @@
 import os
 import srt
 
-root_path = r'C:\Users\Pete\ALL-P70\Japanese\SUBS2SRS\Movies and Shows\Code Geass\Code Geass Lelouch Of The Rebellion R2\JP Subs'
+root_path = r'C:\Users\Pete\ALL\Japanese\SUBS2SRS\Movies and Shows\Code Geass\Code Geass Lelouch Of The Rebellion R2\JP Subs'
 match_pattern = 'Code_Geass'
 os.chdir(root_path)
 filenames = os.listdir()

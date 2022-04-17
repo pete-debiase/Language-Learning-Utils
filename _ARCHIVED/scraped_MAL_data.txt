@@ -1,0 +1,239 @@
+91 Days	7.90	12
+Ajin	7.71	13
+Anohana The Flower We Saw That Day	8.56	11
+Another	7.80	12
+Arslan Senki 2	7.63	8
+Arslan Senki	7.83	25
+Assassination Classroom	8.21	22
+Black Bullet	7.39	13
+Brave 10	6.93	12
+Bungou Stray Dogs	7.81	12
+CodeBreaker	6.99	13
+Code Geass Lelouch Of The Rebellion	8.79	25
+Code Geass Lelouch Of The Rebellion R2	8.95	25
+Control	7.39	11
+Cowboy Bebop	8.81	26
+Cross Ange Tenshi to Ryuu no Rondo	7.48	25
+Danganronpa Kibou no Gakuen to Zetsubou no Koukousei The Animation	7.48	13
+Deadman Wonderland	7.42	12
+Devil Survivor 2 The Animation	7.03	13
+Durarara!!	8.31	24
+Durarara!!x2 Shou	8.12	12
+Durarara!!x2 Ten	8.10	12
+Evangelion	8.31	26
+FLCL	8.06	6
+Full Metal Panic!	7.77	24
+Full Metal Panic Fumoffu	8.17	12
+Full Metal Panic The Second Raid	8.03	13
+Ga-Rei Zero	7.73	12
+Gakkou Gurashi!	7.69	12
+GATE Jieitai Kanochi nite, Kaku Tatakaeri	7.90	12
+God Eater	7.51	13
+Golgo 13	7.59	50
+Guilty Crown	7.76	22
+Guin Saga	7.26	26
+Gyakkyou Burai Kaiji	8.32	26
+Gyakkyou Burai Kaiji Hakairoku-hen	8.28	26
+Haikyuu!!	8.66	25
+Haikyuu!! S3	9.00	10
+Haikyuu!! Second Season	8.89	25
+Hataraku Maou-sama!	7.99	13
+Higashi no Eden	7.97	11
+Highschool DxD New	7.62	12
+Hikaru no Go	8.17	75
+Hokuto No Ken	7.97	109
+Hourou Musuko	7.80	11
+Hyouge Mono	8.09	39
+Hyouka	8.15	22
+Jigoku Shoujo	7.76	26
+JoJo's Bizarre Adventure	8.43	26
+JoJo's Bizarre Adventure Stardust Crusaders	8.24	24
+JoJo no Kimyou na Bouken	8.43	26
+JoJo no Kimyou na Bouken: Diamond wa Kudakenai	8.64	39
+JoJo no Kimyou na Bouken: Stardust Crusaders - Egypt Hen	8.57	24
+JoJo no Kimyou na Bouken: Stardust Crusaders	8.24	24
+Joker Game	7.15	12
+Jormungand	7.93	12
+K	7.69	13
+Katanagatari	8.45	12
+Kekkai Sensen	7.73	12
+Kill La Kill	8.20	24
+Kindaichi Case Files	PERFORM_MANUAL_SEARCH
+Kindaichi Case Files R	PERFORM_MANUAL_SEARCH
+Kingdom	8.21	38
+Kiseijuu Sei no Kakuritsu	8.53	24
+Koutetsujou No Kabaneri	7.32	12
+Kuroshitsuji	8.01	24
+Kuroshitsuji Book of Murder	8.36	2
+Kuroshitsuji Book Of Circus	8.34	10
+Kuroshitsuji II	7.49	12
+Kyoukai no Kanata	7.87	12
+K Return Of Kings	7.79	13
+Log Horizon	8.10	25
+Macross Frontier	7.99	25
+Magi The Kingdom Of Magic	8.45	25
+Magi The Labyrinth Of Magic	8.22	25
+Mahou Shoujo Madoka Magika	8.47	12
+Mawaru Penguindrum	8.04	24
+Mirai Nikki	7.93	26
+Mobile Suit Gundam 0079	7.87	43
+Mobile Suit Gundam OO	8.22	25
+Mobile Suit Gundam OO 2nd	8.22	25
+Mobile Suit Gundam Iron-Blooded Orphans	7.99	25
+Mobile Suit Gundam Unicorn	8.33	7
+Mobile Suit Gundam Unicorn RE 0096	7.54	22
+Mobile Suit Gundam Wing	7.84	49
+Mob Psycho 100	8.52	12
+Monogatari Series - Second Season	8.77	26
+Moonlight Mile	7.25	12
+Nadia The Secret Of Blue Water	7.63	39
+Nagi no Asukara	8.25	26
+Nanatsu No Taizai	8.31	24
+Natsume Yuujinchou	8.40	13
+Natsume Yuujinchou Shi	8.73	13
+Neon Genesis Evangelion	8.31	26
+Nisemonogatari	8.20	11
+Nobunaga Concerto	7.75	10
+Noragami	8.15	12
+Noragami Aragoto	8.43	13
+Nurarihyon no Mago	7.76	24
+Ping Pong THE ANIMATION	8.65	11
+PLANETES	8.37	26
+Prison school	7.94	12
+Psycho-Pass	8.46	22
+Psycho-Pass 2	7.56	11
+Re Zero kara Hajimeru Isekai Seikatsu	8.46	25
+Robotics Notes	7.41	22
+Sarai-ya Goyou	7.90	12
+Sayonara Zetsubou Sensei	8.00	12
+Seikai no Monshou	7.80	13
+Seikai no Senki	7.82	13
+Shiki	7.93	22
+Shin Sekai Yori	8.50	25
+Shouwa Genroku Rakugo Shinjuu	8.63	13
+Shuumatsu Nani Shitemasuka Isogashii Desuka Sukutte Moratte Ii Desuka	7.86	12
+Space Pirate Captain Harlock	7.83	42
+Stein;Gate	9.14	24
+STEINS GATE	9.14	24
+Tasogare Otome × Amnesia	7.94	12
+Terra e	8.03	24
+The Twelve Kingdoms	8.14	45
+Tiger & Bunny	8.08	25
+Toaru Kagaku no Railgun	7.83	24
+Toaru Kagaku no Railgun S	8.13	24
+To Love-Ru Darkness	7.73	12
+Top o Nerae! GunBuster	7.94	6
+Touhai Densetsu Akagi - Yami Ni Maiorita Tensai	8.00	26
+Tsuritama	7.80	12
+Uchuu Kyoudai	8.57	99
+Uchuu Senkan Yamato	7.71	26
+Uchuu Senkan Yamato 2	7.59	26
+Uchuu Senkan Yamato 3	7.28	25
+Uchuu Senkan Yamato 2199	8.48	26
+Un-Go	7.50	11
+Yojouhan Shinwa Taikei	8.66	11
+Zankyou No Teroru	8.22	11
+Accel World	7.55	24
+Ace Of Diamond	8.21	75
+Akuma No Ridoru	6.79	12
+Aldnoah Zero	7.59	12
+Angel Beats	8.33	13
+Ao No Exorcist	7.86	25
+Aquarion Evol	7.27	26
+Ashita No Joe 2	8.58	47
+Beelzebub	8.03	60
+Blade x Soul	6.21	13
+Bleach	7.91	366
+Boku No Hero Academia	8.43	13
+Buddy Complex	7.26	13
+Charlotte	7.92	13
+Chihayafuru	8.29	25
+Chihayafuru S2	8.48	25
+Classroom Crisis	7.11	13
+Cobra The Animation	7.17	13
+Dantalian no Shoka	7.33	12
+Donten ni Warau	7.61	12
+Fukigen na Mononokean	7.45	13
+Gintama'  Enchousen	9.08	13
+Gintama	9.02	201
+Gin No Saji	8.16	11
+Gundam G No Reconguista	5.81	26
+Gyakuten Saiban	6.44	24
+Hakkenden - Touhou Hakken Ibun	7.55	13
+Hamatora	7.41	12
+Heavy Object	7.38	24
+Hibike! Euphonium	8.02	13
+Hibike! Euphonium 2	8.29	13
+Hoozuki no Reitetsu 2	7.87	13
+Hoozuki No Reitetsu	7.85	13
+Ichiban Ushiro no Daimaou	7.15	12
+Initial D Fifth Stage	8.15	14
+Inu X Boku SS	7.64	12
+Joujuu Senjin!! Mushibugyou	PERFORM_MANUAL_SEARCH
+Kami-sama no Inai Nichiyoubi	7.48	12
+Kami nomi zo Shiru Sekai: Megami Hen	8.23	12
+Kantai Collection	7.02	12
+Kidou Shin Seiki Gundam X	7.38	39
+Kuroko no Basket	8.39	25
+Magic Kaito 1412	7.96	24
+Mahouka Koukou no Rettousei	7.75	26
+Mekaku City Actors	7.19	12
+Mobile Fighter G Gundam	7.61	49
+Mobile Suit Victory Gundam	6.90	51
+Mobile Police Patlabor	7.75	47
+Mobile Suit Gundam AGE	6.57	49
+Mushibugyo	7.45	26
+Owari no Seraph	7.64	12
+Owari No Seraph	7.64	12
+Pandora Hearts	7.87	25
+Phi Brain Kami No Puzzle	7.29	25
+Saint Seiya	7.97	114
+Saishuuheiki Kanojo	7.28	13
+Saiyuuki Reload Blast	7.40	12
+Sankarea	7.50	12
+Scrapped Princess	7.49	24
+Shidonia No Kishi	7.82	12
+Shidonia No Kishi Daikyuu Wakusei Seneki	7.89	12
+Shingeki No Bahamut Virgin Soul	7.59	24
+Shinrei Tantei Yakumo	7.45	13
+Soukyuu no Fafner	7.37	25
+Soukyuu No Fafner Exodus	7.44	13
+Space Dandy	7.88	13
+Spice and Wolf	8.35	13
+Spice and Wolf II	8.44	12
+Suisei no Gargantia	7.61	13
+Sword Art Online	7.68	25
+Sword Art Online II	7.23	24
+Tales of the Abyss	7.44	26
+Tatakau Shisho - The Book of Bantorra	7.33	27
+Tegami Bachi	7.73	25
+Tegami Bachi Reverse	7.87	25
+Terra Formars	7.14	13
+Tokyo Ravens	7.75	24
+Uragiri wa Boku no Namae o Shitte Iru	7.40	24
+Ushio to Tora	7.68	26
+Ushio to Tora 2	8.07	13
+Xam'd Lost Memories (Bounen no Zamudo)	7.78	26
+Yuusha-Ou GaoGaiGar	7.92	49
+Yuusha-Ou GaoGaiGar Final	8.19	8
+Zetsuen No Tempest	8.13	24
+Ano Natsu de Matteru	7.65	12
+Baccano!	8.50	13
+Bayonetta: Bloody Fate	PERFORM_MANUAL_SEARCH
+Boruto Naruto Next Generations	PERFORM_MANUAL_SEARCH
+C - The Money of Soul and Possibility Control	7.39	11
+Chobits	7.54	26
+Clockwork Planet	PERFORM_MANUAL_SEARCH
+Elfen Lied	7.77	13
+Galilei Donna	6.48	11
+Ghost Sweeper Mikami	7.28	45
+Handa-kun	7.47	12
+Infinite Stratos	7.05	12
+Jinrui wa Suitai Shimashita	7.88	12
+Sousei No Onmyouji	7.39	50
+Souten Kouro	PERFORM_MANUAL_SEARCH
+Star Driver	7.33	25
+Toaru Majutsu no Index	7.64	24
+Toaru Majutsu no Index II	7.80	24
+Tokyo Ghoul	8.01	12
+Tokyo Ghoul A	7.46	12
