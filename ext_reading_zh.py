@@ -4,13 +4,20 @@
 import json
 import re
 
-source = '我們是朋友嗎？'
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Setup
+# └─────────────────────────────────────────────────────────────────────────────
+SOURCE = '我們是朋友嗎？'
+INPUT_FILE = r'C:\Users\pete\Dropbox\Just Friends.read'
 
-with open('../ZH/CEDICT/cedict_ts.json', 'r', encoding='utf-8') as f:
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Business
+# └─────────────────────────────────────────────────────────────────────────────
+filename = r'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_ts.json'
+with open(filename, 'r', encoding='utf-8') as f:
     cedict = json.load(f)
 
-filename = r'C:\Users\pete\Dropbox\Just Friends.read'
-with open(filename, 'r', encoding='utf-8') as f:
+with open(INPUT_FILE, 'r', encoding='utf-8') as f:
     text = [line.strip() for line in f]
 text = [_ for _ in text if _ and '{' in _ and '}' in _]
 
@@ -29,9 +36,9 @@ for sentence in text:
             trad = simp = pinyin = 'none'
             defs = ''
 
-        tsv = f'{sentence2}\t\t{trad}<br>{simp}<br>{pinyin}\t{defs}\t\t\t{source}'
+        tsv = f'{sentence2}\t\t{trad}<br>{simp}<br>{pinyin}\t{defs}\t\t\t{SOURCE}'
         tsv_anki.append(tsv)
 
 
-with open('../ZH/CEDICT/temp.tsv', 'w+', newline='\n', encoding='utf-8') as f:
+with open('temp.tsv', 'w+', newline='\n', encoding='utf-8') as f:
     f.write('\n'.join(tsv_anki))
