@@ -27,22 +27,39 @@ def build_cedict_table(word: str) -> str:
         simp = cedict_entries[0]['s']
 
         word = '<br>'.join(list(dict.fromkeys([trad, simp])))
-        pinyins = [entry['p'] for entry in cedict_entries]
+        pinyins_unicode = [entry['p'] for entry in cedict_entries]
+        pinyins_numeric = [entry['p#'] for entry in cedict_entries]
         defs = [entry['d'] for entry in cedict_entries]
+
+        pinyins_tagged = []
+        for pu, pn in zip(pinyins_unicode, pinyins_numeric):
+            pinyin_tagged = tag_pinyin(pu, pn)
+            pinyins_tagged.append(pinyin_tagged)
 
         a = Airium()
         with a.table():
-            for p, d in zip(pinyins, defs):
+            for p, d in zip(pinyins_tagged, defs):
                 cells = [word, p, d]
                 with a.tr():
                     [a.td(_t=cell) for cell in cells]
-
         table = str(a)
         table = table.replace('\n', '')
         table = re.sub(r'>\s+<', '><', table)
+        table = table.replace('</span><span', '</span> <span')
     except KeyError:
         table = 'none'
     return table
+
+def tag_pinyin(pinyin_unicode: str, pinyin_numeric: str) -> str:
+    """Span-tag pinyin by tone (for displaying pinyin with color)."""
+    tagvals = []
+    syllables_u, syllables_n = pinyin_unicode.split(' '), pinyin_numeric.split(' ')
+    for syllable_u, syllable_n in zip(syllables_u, syllables_n):
+        tone = re.findall(r'\d', syllable_n)[0]
+        tagval = f'<span class="tone{tone}">{syllable_u}</span>'
+        tagvals.append(tagval)
+    tagged_text = ' '.join(tagvals)
+    return tagged_text
 
 
 with open(INPUT_FILE, 'r', encoding='utf-8') as f:
