@@ -6,6 +6,8 @@ from datetime import datetime
 import json
 import re
 
+import jieba
+
 from common import is_cjk_ideograph
 
 # ┌─────────────────────────────────────────────────────────────────────────────
@@ -13,12 +15,13 @@ from common import is_cjk_ideograph
 # └─────────────────────────────────────────────────────────────────────────────
 TITLE = '我們是朋友嗎？'
 INPUT_FILE = r'C:\Users\pete\ALL\Languages\ZH\_alltexts\Just Friends.txt'
+CHARSET = 't' # t = traditional, s = simplified
 timestamp = f'{datetime.now():%Y-%m-%d %H:%M:%S}'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
 # └─────────────────────────────────────────────────────────────────────────────
-# Load up necessary data
+# Load up necessary files
 with open(INPUT_FILE, 'r', encoding='utf-8') as f:
     fulltext = f.read()
 
@@ -41,3 +44,30 @@ unknown_chars = [k for k in unique_chars if k not in known_chars]
 print(f'total_chars: {total_chars}')
 print(f'unique_chars: {len(unique_chars)}')
 print(f'unknown_chars: {len(unknown_chars)}')
+
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Word-Based Analysis
+# └─────────────────────────────────────────────────────────────────────────────
+# Load up necessary files
+filename = r'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_ts.json'
+with open(filename, 'r', encoding='utf-8') as f:
+    cedict = json.load(f)
+
+with open('known_words.json', 'r', encoding='utf-8') as f:
+    known_words = json.load(f)
+
+filename = rf'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_{CHARSET}_jieba.txt'
+jieba.load_userdict(filename)
+
+# Unique words
+wordlist = list(jieba.cut(fulltext, cut_all=False))
+counter = Counter(wordlist)
+unique_words = {k: v for k, v in counter.most_common() if k in cedict}
+print([k for k in counter if k not in unique_words], '\n') # Should be mostly mis-segmented words
+
+# Unknown words
+unknown_words = [k for k in unique_words if k not in known_words]
+
+# Display stats
+print(f'unique_words: {len(unique_words)}')
+print(f'unknown_words: {len(unknown_words)}')
