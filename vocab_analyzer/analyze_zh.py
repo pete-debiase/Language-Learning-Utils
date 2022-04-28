@@ -81,6 +81,8 @@ print(f'unknown_words: {len(unknown_words)}')
 # Update known characters and words
 known_chars += Counter(unique_chars)
 known_words += Counter(unique_words)
+known_chars = dict(known_chars.most_common()) # Keep sorted by freq
+known_words = dict(known_words.most_common()) # Keep sorted by freq
 
 with open('known_chars.json', 'w+', newline='\n', encoding='utf-8') as f:
     json.dump(known_chars, f, indent=2, ensure_ascii=False)
