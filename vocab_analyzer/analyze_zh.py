@@ -15,6 +15,7 @@ from common import is_cjk_ideograph
 # └─────────────────────────────────────────────────────────────────────────────
 TITLE = '我們是朋友嗎？'
 INPUT_FILE = r'C:\Users\pete\ALL\Languages\ZH\_alltexts\Just Friends.txt'
+CONTENT_TYPE = 'book'
 CHARSET = 't' # t = traditional, s = simplified
 
 # ┌─────────────────────────────────────────────────────────────────────────────
@@ -95,6 +96,7 @@ with open('seen_content_zh.json', 'r', encoding='utf-8') as f:
     seen_content = json.load(f)
 
 new_content = {'time': f'{datetime.now():%Y-%m-%d %H:%M:%S}',
+               'type': CONTENT_TYPE,
                '#c': total_chars,
                '#cn': len(new_chars),
                '#wn': len(new_words),
