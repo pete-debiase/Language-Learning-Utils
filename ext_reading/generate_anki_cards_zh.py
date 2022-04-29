@@ -73,12 +73,12 @@ tsv_anki = []
 for sentence in sentences:
     targets = re.findall(r'\{(.*?)\}', sentence)
     for target in targets:
-        sentence = sentence.replace(f'{{{target}}}', f'<span class="target">{target}</span>')
-        sentence = sentence.replace('{', '').replace('}', '')
+        sentence_new = sentence.replace(f'{{{target}}}', f'<span class="target">{target}</span>')
+        sentence_new = sentence_new.replace('{', '').replace('}', '')
 
         cedict_table = build_cedict_table(target)
 
-        tsv = f'{sentence}\t\t{cedict_table}\t\t\t\t{SOURCE}'
+        tsv = f'{sentence_new}\t\t{cedict_table}\t\t\t\t{SOURCE}'
         tsv_anki.append(tsv)
 
 with open('temp.tsv', 'w+', newline='\n', encoding='utf-8') as f:
