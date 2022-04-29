@@ -84,3 +84,5 @@ for filename in srt_files:
         srt.data = filtered_subs
         output_filename = root_filtered + filename
         srt.save(output_filename, encoding='utf-8')
+
+print(target_words)
