@@ -4,11 +4,10 @@
 from collections import Counter
 from datetime import datetime
 import json
-import re
 
 import fugashi
 
-from common import is_cjk_ideograph, kanken_analysis_absolute, kanken_analysis_relative
+from common_va import *
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
