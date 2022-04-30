@@ -13,9 +13,9 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Ghost in the Shell: Stand Alone Complex 1 and 2'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\GITS_SAC.txt'
-CONTENT_TYPE = 'show'
+TITLE = 'Patent Translation 2014-2020'
+INPUT_FILE = r'dummy.txt'
+CONTENT_TYPE = 'work'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
