@@ -2,16 +2,17 @@
 """Filter subtitles against target words/phrases"""
 
 import os
+from statistics import mean
 
 import pysrt
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Claymore\target_words.txt'
+TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\target_words.txt'
 TARGET_DURATION_MS = 11000
 
-root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Claymore\\'
+root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\\'
 root_srt = root_orig + 'subs_ja/srt/'
 root_filtered = root_orig + 'subs_ja/filtered/'
 
@@ -88,5 +89,7 @@ for filename in srt_files:
         srt.data = filtered_subs
         output_filename = root_filtered + filename
         srt.save(output_filename, encoding='utf-8')
+        mean_duration = mean([sub.end.ordinal - sub.start.ordinal for sub in filtered_subs])
 
 print(target_words)
+print(mean_duration)
