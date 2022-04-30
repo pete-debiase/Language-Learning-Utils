@@ -82,6 +82,9 @@ for word in unique_words:
     if contains_fanciness: vocab.append(word)
 print(vocab)
 
+with open('vocab_raw.txt', 'w+', newline='\n', encoding='utf-8') as f:
+    f.write('\n'.join(vocab))
+
 # Find associated fancy contexts
 contexts = []
 for line in fulltext.split('\n'):
@@ -92,7 +95,7 @@ for line in fulltext.split('\n'):
             vocab.remove(word)
 
 print(vocab)
-with open('vocab_candidates.txt', 'w+', newline='\n', encoding='utf-8') as f:
+with open('vocab_with_context.txt', 'w+', newline='\n', encoding='utf-8') as f:
     f.write('\n'.join(contexts))
 
 # ┌─────────────────────────────────────────────────────────────────────────────
