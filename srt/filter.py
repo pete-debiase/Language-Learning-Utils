@@ -8,11 +8,11 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Ajin\target_words.txt'
-TARGET_DURATION_MS = 15000
+TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Claymore\target_words.txt'
+TARGET_DURATION_MS = 11000
 
-root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Ajin\\'
-root_srt = root_orig + 'subs_ja/retimed/'
+root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Claymore\\'
+root_srt = root_orig + 'subs_ja/srt/'
 root_filtered = root_orig + 'subs_ja/filtered/'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
@@ -46,20 +46,24 @@ def build_out_context(srt: pysrt.SubRipFile, i: int, main_index: int) -> pysrt.S
             k = oscillator[1]
         j += 1
 
-        candidate_sub = srt[i + k]
+        # Handle BOF/EOF issues
+        try:
+            candidate_sub = srt[i + k]
+        except IndexError:
+            continue
+
+        # Handle deadtime issues
         if k < 0:
             deadtime = sub_buffer[0].start.ordinal - candidate_sub.end.ordinal
         else:
             deadtime = candidate_sub.start.ordinal - sub_buffer[-1].end.ordinal
         if deadtime >= 7500: continue
 
+        # Build out context in appropriate direction
         if k < 0:
             sub_buffer.insert(0, candidate_sub)
         else:
             sub_buffer.append(candidate_sub)
-
-        duration = sub_buffer[-1].end.ordinal - sub_buffer[0].start.ordinal
-        if duration >= TARGET_DURATION_MS: break
 
 
     new_sub = glue_subs(main_index, sub_buffer)
