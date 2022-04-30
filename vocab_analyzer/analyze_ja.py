@@ -13,8 +13,8 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Code Geass: Lelouch of the Rebellion 1 and 2'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Code Geass LoTR.txt'
+TITLE = 'Ajin'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Ajin.txt'
 CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
