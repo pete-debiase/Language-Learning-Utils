@@ -13,9 +13,9 @@ import haitou as ht
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Eureka Seven: Pocket Full of Rainbows'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Eureka_Seven_PfoR.txt'
-CONTENT_TYPE = 'movie'
+TITLE = 'Ghost in the Shell: Stand Alone Complex 1/2'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\GITS_SAC.txt'
+CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
@@ -115,6 +115,7 @@ with open('seen_content_ja.json', 'r', encoding='utf-8') as f:
     seen_content = json.load(f)
 
 all_char_report = kanken_analysis_absolute(seen_chars)
+non_kanken_chars = ''.join([c for c in unique_chars if not ht.is_kanken(c)])
 content_summary = {'time': f'{datetime.now():%Y-%m-%d %H:%M:%S}',
                    'type': CONTENT_TYPE,
                    '#c': total_chars,
@@ -129,6 +130,7 @@ content_summary = {'time': f'{datetime.now():%Y-%m-%d %H:%M:%S}',
                    'cq': ''.join(unique_chars.keys()),
                    'lq': '|'.join(unique_lemmas.keys()),
                    'KK': all_char_report,
+                   'NK': non_kanken_chars,
                    }
 seen_content[TITLE] = content_summary
 
