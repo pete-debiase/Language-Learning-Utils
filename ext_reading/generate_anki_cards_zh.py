@@ -6,11 +6,13 @@ import re
 
 from airium import Airium
 
+from pinyin_tools import tonetag
+
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 SOURCE = '我們是朋友嗎？'
-INPUT_FILE = r'C:\Users\pete\Dropbox\Just Friends.read'
+INPUT_FILE = r'C:\Users\pete\Dropbox\Just Friends.rd_cjk'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ CEDICT Lookup
@@ -28,15 +30,14 @@ def build_cedict_table(word: str) -> str:
         simp = cedict_entries[0]['s']
 
         word = '<br>'.join(list(dict.fromkeys([trad, simp]))) # Preserve order
-        pinyins_unicode = [entry['p'] for entry in cedict_entries]
-        pinyins_numeric = [entry['p#'] for entry in cedict_entries]
+        pinyins_accented = [entry['p'] for entry in cedict_entries]
         defs = [entry['d'] for entry in cedict_entries]
 
-        # Tag pinyin
+        # Tonetag pinyin
         pinyins_tagged = []
-        for pu, pn in zip(pinyins_unicode, pinyins_numeric):
-            pinyin_tagged = tonetag_pinyin(pu, pn)
-            pinyins_tagged.append(pinyin_tagged)
+        for p in pinyins_accented:
+            p_tagged = tonetag(p)[0]
+            pinyins_tagged.append(p_tagged)
 
         # Generate/format HTML table
         a = Airium()
@@ -50,17 +51,6 @@ def build_cedict_table(word: str) -> str:
     except KeyError:
         table = 'none'
     return table
-
-def tonetag_pinyin(pinyin_unicode: str, pinyin_numeric: str) -> str:
-    """Span-tag pinyin by tone (for displaying pinyin with color)."""
-    syllables_tagged = []
-    syllables_u, syllables_n = pinyin_unicode.split(' '), pinyin_numeric.split(' ')
-    for syllable_u, syllable_n in zip(syllables_u, syllables_n):
-        tone = re.findall(r'\d', syllable_n)[0]
-        syllable_tagged = f'<span class="tone{tone}">{syllable_u}</span>'
-        syllables_tagged.append(syllable_tagged)
-    tagged_text = ' '.join(syllables_tagged)
-    return tagged_text
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Process Input Text and Generate Anki TSV
