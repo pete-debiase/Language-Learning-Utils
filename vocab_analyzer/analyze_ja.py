@@ -13,9 +13,9 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Claymore'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Claymore.txt'
-CONTENT_TYPE = 'show'
+TITLE = 'Patent Translation 2014-2020'
+INPUT_FILE = r'dummy.txt'
+CONTENT_TYPE = 'work'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
