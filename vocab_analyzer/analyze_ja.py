@@ -13,8 +13,8 @@ import haitou as ht
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Ghost in the Shell: Stand Alone Complex 1/2'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\GITS_SAC.txt'
+TITLE = 'Code Geass: Lelouch of the Rebellion 1/2'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Code Geass LoTR.txt'
 CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
