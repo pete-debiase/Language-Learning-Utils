@@ -13,8 +13,8 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'FLCL'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\FLCL.txt'
+TITLE = 'Code Geass: Lelouch of the Rebellion 1 and 2'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Code Geass LoTR.txt'
 CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
