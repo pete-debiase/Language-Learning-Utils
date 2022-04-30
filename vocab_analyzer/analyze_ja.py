@@ -13,9 +13,9 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'E7'
+TITLE = 'Eureka Seven: Pocket Full of Rainbows'
 INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Eureka_Seven_PfoR.txt'
-CONTENT_TYPE = 'show'
+CONTENT_TYPE = 'movie'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
