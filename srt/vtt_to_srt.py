@@ -10,8 +10,8 @@ import webvtt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Ajin'
-root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Ajin\\'
+TITLE = 'Claymore'
+root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Claymore\\'
 root_vtt = root_orig + 'subs_ja/vtt/'
 root_srt = root_orig + 'subs_ja/srt/'
 
@@ -30,7 +30,7 @@ for filename in vtt_files:
         vtt.write(file, format='srt')
 
 # ┌─────────────────────────────────────────────────────────────────────────────
-# │ Generate Fulltext
+# │ Clean SRT + Generate Fulltext
 # └─────────────────────────────────────────────────────────────────────────────
 for root, dirs, files in os.walk(root_srt):
     srt_files = [root + f for f in files]
@@ -38,7 +38,11 @@ for root, dirs, files in os.walk(root_srt):
 fulltext = []
 for filename in srt_files:
     srt = pysrt.open(filename)
-    fulltext.extend([_.text.replace('\n', '') for _ in srt])
+    for sub in srt:
+        sub.text = sub.text_without_tags
+        sub.text = sub.text.replace('&lrm;', '').replace('\n', '')
+    srt.save(filename, encoding='utf-8')
+    fulltext.extend([_.text for _ in srt])
 
-with open(f'{TITLE}.txt', 'w+', newline='\n', encoding='utf-8') as f:
+with open(root_orig + f'{TITLE}.txt', 'w+', newline='\n', encoding='utf-8') as f:
     f.write('\n'.join(fulltext))
