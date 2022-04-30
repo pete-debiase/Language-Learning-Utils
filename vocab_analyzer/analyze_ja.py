@@ -13,9 +13,9 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Eureka Seven: Pocket Full of Rainbows'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Eureka_Seven_PfoR.txt'
-CONTENT_TYPE = 'movie'
+TITLE = 'Ghost in the Shell: Stand Alone Complex 1 and 2'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\GITS_SAC.txt'
+CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
