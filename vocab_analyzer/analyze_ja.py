@@ -13,8 +13,8 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Ajin'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Ajin.txt'
+TITLE = 'Claymore'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Claymore.txt'
 CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
