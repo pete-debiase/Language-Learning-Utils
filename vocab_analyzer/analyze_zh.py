@@ -13,8 +13,8 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = '我們是朋友嗎？'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\ZH\_alltexts\Just Friends.txt'
+TITLE = '我的老師是火星人'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\ZH\_fulltexts\My Teacher Is a Martian.txt'
 CONTENT_TYPE = 'book'
 CHARSET = 't' # t = traditional, s = simplified
 
