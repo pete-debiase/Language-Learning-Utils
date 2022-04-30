@@ -13,8 +13,8 @@ import haitou as ht
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Code Geass: Lelouch of the Rebellion 1/2'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Code Geass LoTR.txt'
+TITLE = 'Ajin'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Ajin.txt'
 CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
