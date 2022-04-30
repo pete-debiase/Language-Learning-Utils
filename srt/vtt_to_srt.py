@@ -40,7 +40,7 @@ for filename in srt_files:
     srt = pysrt.open(filename)
     for sub in srt:
         sub.text = sub.text_without_tags
-        sub.text = sub.text.replace('&lrm;', '').replace('\n', '')
+        sub.text = sub.text.replace('&lrm;', '').replace('\n', ' ')
     srt.save(filename, encoding='utf-8')
     fulltext.extend([_.text for _ in srt])
 
