@@ -1,22 +1,21 @@
 #!/usr/bin/env python3
-"""Analyze a new piece of Chinese content"""
+"""Analyze a new piece of Japanese content"""
 
 from collections import Counter
 from datetime import datetime
 import json
 import re
 
-import jieba
+import fugashi
 
 from common import is_cjk_ideograph
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = '我的老師是火星人'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\ZH\_fulltexts\My Teacher Is a Martian.txt'
-CONTENT_TYPE = 'book'
-CHARSET = 't' # t = traditional, s = simplified
+TITLE = 'E7'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Eureka_Seven_PfoR.txt'
+CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
@@ -25,7 +24,7 @@ CHARSET = 't' # t = traditional, s = simplified
 with open(INPUT_FILE, 'r', encoding='utf-8') as f:
     fulltext = f.read()
 
-with open('seen_chars_zh.json', 'r', encoding='utf-8') as f:
+with open('seen_chars_ja.json', 'r', encoding='utf-8') as f:
     seen_chars = Counter(json.load(f))
 
 # Total characters
@@ -49,25 +48,16 @@ print(f'new_chars: {len(new_chars)}')
 # │ Word-Based Analysis
 # └─────────────────────────────────────────────────────────────────────────────
 # Load up necessary files
-filename = r'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_ts.json'
-with open(filename, 'r', encoding='utf-8') as f:
-    cedict = json.load(f)
-
-with open('seen_words_zh.json', 'r', encoding='utf-8') as f:
+with open('seen_words_ja.json', 'r', encoding='utf-8') as f:
     seen_words = Counter(json.load(f))
 
-filename = rf'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_{CHARSET}_jieba.txt'
-jieba.load_userdict(filename)
-
 # Total words
-seg_text = list(jieba.cut(fulltext, cut_all=False))
-word_list = [word for word in seg_text if word in cedict] # Keep "real" words
+tagger = fugashi.Tagger()
+word_list = [word.feature.lemma for word in tagger(fulltext) if word.feature.lemma]
 word_list_new = [word for word in word_list if word not in seen_words]
 
 # Unique words
-seg_counter = Counter(seg_text)
-unique_words = {k: v for k, v in Counter(word_list).most_common()}
-print([k for k in seg_counter if k not in unique_words], '\n') # Should be mostly mis-segmented words
+unique_words = Counter(word_list)
 
 # New words
 new_words = [k for k in unique_words if k not in seen_words]
@@ -85,14 +75,14 @@ seen_words += Counter(unique_words)
 seen_chars = dict(seen_chars.most_common()) # Keep sorted by freq
 seen_words = dict(seen_words.most_common()) # Keep sorted by freq
 
-with open('seen_chars_zh.json', 'w+', newline='\n', encoding='utf-8') as f:
+with open('seen_chars_ja.json', 'w+', newline='\n', encoding='utf-8') as f:
     json.dump(seen_chars, f, indent=2, ensure_ascii=False)
 
-with open('seen_words_zh.json', 'w+', newline='\n', encoding='utf-8') as f:
+with open('seen_words_ja.json', 'w+', newline='\n', encoding='utf-8') as f:
     json.dump(seen_words, f, indent=2, ensure_ascii=False)
 
 # Update seen content records
-with open('seen_content_zh.json', 'r', encoding='utf-8') as f:
+with open('seen_content_ja.json', 'r', encoding='utf-8') as f:
     seen_content = json.load(f)
 
 content_summary = {'time': f'{datetime.now():%Y-%m-%d %H:%M:%S}',
@@ -111,5 +101,5 @@ content_summary = {'time': f'{datetime.now():%Y-%m-%d %H:%M:%S}',
                    }
 seen_content[TITLE] = content_summary
 
-with open('seen_content_zh.json', 'w+', newline='\n', encoding='utf-8') as f:
+with open('seen_content_ja.json', 'w+', newline='\n', encoding='utf-8') as f:
     json.dump(seen_content, f, indent=2, ensure_ascii=False)
