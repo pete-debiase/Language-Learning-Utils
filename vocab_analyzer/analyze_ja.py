@@ -8,7 +8,7 @@ import re
 
 import fugashi
 
-from common import is_cjk_ideograph
+from common import is_cjk_ideograph, kanken_analysis_absolute, kanken_analysis_relative
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
@@ -40,9 +40,12 @@ print([k for k in counter if k not in unique_chars], '\n') # Should only be [a-z
 new_chars = [k for k in unique_chars if k not in seen_chars]
 
 # Display stats
+unique_char_report = kanken_analysis_relative(unique_chars)
+new_char_report = kanken_analysis_relative(new_chars)
+
 print(f'total_chars: {total_chars}')
-print(f'unique_chars: {len(unique_chars)}')
-print(f'new_chars: {len(new_chars)}')
+print(unique_char_report)
+print(new_char_report)
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Lemma-Based Analysis
@@ -85,19 +88,21 @@ with open('seen_lemmas_ja.json', 'w+', newline='\n', encoding='utf-8') as f:
 with open('seen_content_ja.json', 'r', encoding='utf-8') as f:
     seen_content = json.load(f)
 
+all_char_report = kanken_analysis_absolute(seen_chars)
 content_summary = {'time': f'{datetime.now():%Y-%m-%d %H:%M:%S}',
                    'type': CONTENT_TYPE,
                    '#c': total_chars,
-                   '#cn': len(new_chars),
-                   '#ln': len(new_lemmas),
                    '%cn': round(len(new_chars) / len(unique_chars), 2),
                    '%ln': round(len(lemma_list_new) / len(lemma_list), 2),
-                   '#cq': len(unique_chars),
+                   '#cn': new_char_report,
+                   '#ln': len(new_lemmas),
+                   '#cq': unique_char_report,
                    '#lq': len(unique_lemmas),
                    'cn': ''.join(new_chars),
                    'ln': '|'.join(new_lemmas),
                    'cq': ''.join(unique_chars.keys()),
                    'lq': '|'.join(unique_lemmas.keys()),
+                   'KK': all_char_report,
                    }
 seen_content[TITLE] = content_summary
 
