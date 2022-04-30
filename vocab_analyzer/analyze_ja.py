@@ -8,13 +8,14 @@ import json
 import fugashi
 
 from common_va import *
+import haitou as ht
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Patent Translation 2014-2020'
-INPUT_FILE = r'dummy.txt'
-CONTENT_TYPE = 'work'
+TITLE = 'Eureka Seven: Pocket Full of Rainbows'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Eureka_Seven_PfoR.txt'
+CONTENT_TYPE = 'movie'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
@@ -43,8 +44,8 @@ unique_char_report = kanken_analysis_relative(unique_chars)
 new_char_report = kanken_analysis_relative(new_chars)
 
 print(f'total_chars: {total_chars}')
-print(unique_char_report)
 print(new_char_report)
+print(unique_char_report)
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Lemma-Based Analysis
@@ -53,20 +54,46 @@ print(new_char_report)
 with open('seen_lemmas_ja.json', 'r', encoding='utf-8') as f:
     seen_lemmas = Counter(json.load(f))
 
-# Total lemmas
+# Total lemmas/words
 tagger = fugashi.Tagger()
+word_list = [word.surface for word in tagger(fulltext)]
 lemma_list = [word.feature.lemma for word in tagger(fulltext) if word.feature.lemma]
 lemma_list_new = [lemma for lemma in lemma_list if lemma not in seen_lemmas]
 
-# Unique lemmas
+# Unique lemmas/words
 unique_lemmas = Counter(lemma_list)
+unique_words = Counter(word_list)
 
 # New lemmas
 new_lemmas = [k for k in unique_lemmas if k not in seen_lemmas]
 
 # Display stats
-print(f'unique_lemmas: {len(unique_lemmas)}')
 print(f'new_lemmas: {len(new_lemmas)}')
+print(f'unique_lemmas: {len(unique_lemmas)}')
+
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Create Vocab Candidate List
+# └─────────────────────────────────────────────────────────────────────────────
+# Find fancy words that contain non-jouyou kanji
+vocab = []
+fancy_kanji = [c for c in unique_chars if not ht.is_jouyou(c)]
+for word in unique_words:
+    contains_fanciness = any([c in word for c in fancy_kanji])
+    if contains_fanciness: vocab.append(word)
+print(vocab)
+
+# Find associated fancy contexts
+contexts = []
+for line in fulltext.split('\n'):
+    for word in vocab:
+        if word in line:
+            context = line.replace(word, f'[{word}]')
+            contexts.append(context)
+            vocab.remove(word)
+
+print(vocab)
+with open('vocab_candidates.txt', 'w+', newline='\n', encoding='utf-8') as f:
+    f.write('\n'.join(contexts))
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Update Records
