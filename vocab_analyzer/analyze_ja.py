@@ -45,41 +45,41 @@ print(f'unique_chars: {len(unique_chars)}')
 print(f'new_chars: {len(new_chars)}')
 
 # ┌─────────────────────────────────────────────────────────────────────────────
-# │ Word-Based Analysis
+# │ Lemma-Based Analysis
 # └─────────────────────────────────────────────────────────────────────────────
 # Load up necessary files
-with open('seen_words_ja.json', 'r', encoding='utf-8') as f:
-    seen_words = Counter(json.load(f))
+with open('seen_lemmas_ja.json', 'r', encoding='utf-8') as f:
+    seen_lemmas = Counter(json.load(f))
 
-# Total words
+# Total lemmas
 tagger = fugashi.Tagger()
-word_list = [word.feature.lemma for word in tagger(fulltext) if word.feature.lemma]
-word_list_new = [word for word in word_list if word not in seen_words]
+lemma_list = [word.feature.lemma for word in tagger(fulltext) if word.feature.lemma]
+lemma_list_new = [lemma for lemma in lemma_list if lemma not in seen_lemmas]
 
-# Unique words
-unique_words = Counter(word_list)
+# Unique lemmas
+unique_lemmas = Counter(lemma_list)
 
-# New words
-new_words = [k for k in unique_words if k not in seen_words]
+# New lemmas
+new_lemmas = [k for k in unique_lemmas if k not in seen_lemmas]
 
 # Display stats
-print(f'unique_words: {len(unique_words)}')
-print(f'new_words: {len(new_words)}')
+print(f'unique_lemmas: {len(unique_lemmas)}')
+print(f'new_lemmas: {len(new_lemmas)}')
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Update Records
 # └─────────────────────────────────────────────────────────────────────────────
-# Update seen characters and words
+# Update seen characters and lemmas
 seen_chars += Counter(unique_chars)
-seen_words += Counter(unique_words)
+seen_lemmas += Counter(unique_lemmas)
 seen_chars = dict(seen_chars.most_common()) # Keep sorted by freq
-seen_words = dict(seen_words.most_common()) # Keep sorted by freq
+seen_lemmas = dict(seen_lemmas.most_common()) # Keep sorted by freq
 
 with open('seen_chars_ja.json', 'w+', newline='\n', encoding='utf-8') as f:
     json.dump(seen_chars, f, indent=2, ensure_ascii=False)
 
-with open('seen_words_ja.json', 'w+', newline='\n', encoding='utf-8') as f:
-    json.dump(seen_words, f, indent=2, ensure_ascii=False)
+with open('seen_lemmas_ja.json', 'w+', newline='\n', encoding='utf-8') as f:
+    json.dump(seen_lemmas, f, indent=2, ensure_ascii=False)
 
 # Update seen content records
 with open('seen_content_ja.json', 'r', encoding='utf-8') as f:
@@ -89,15 +89,15 @@ content_summary = {'time': f'{datetime.now():%Y-%m-%d %H:%M:%S}',
                    'type': CONTENT_TYPE,
                    '#c': total_chars,
                    '#cn': len(new_chars),
-                   '#wn': len(new_words),
+                   '#ln': len(new_lemmas),
                    '%cn': round(len(new_chars) / len(unique_chars), 2),
-                   '%wn': round(len(word_list_new) / len(word_list), 2),
+                   '%ln': round(len(lemma_list_new) / len(lemma_list), 2),
                    '#cq': len(unique_chars),
-                   '#wq': len(unique_words),
+                   '#lq': len(unique_lemmas),
                    'cn': ''.join(new_chars),
-                   'wn': '|'.join(new_words),
+                   'ln': '|'.join(new_lemmas),
                    'cq': ''.join(unique_chars.keys()),
-                   'wq': '|'.join(unique_words.keys()),
+                   'lq': '|'.join(unique_lemmas.keys()),
                    }
 seen_content[TITLE] = content_summary
 

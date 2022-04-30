@@ -46,50 +46,50 @@ print(f'unique_chars: {len(unique_chars)}')
 print(f'new_chars: {len(new_chars)}')
 
 # ┌─────────────────────────────────────────────────────────────────────────────
-# │ Word-Based Analysis
+# │ Lemma-Based Analysis
 # └─────────────────────────────────────────────────────────────────────────────
 # Load up necessary files
 filename = r'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_ts.json'
 with open(filename, 'r', encoding='utf-8') as f:
     cedict = json.load(f)
 
-with open('seen_words_zh.json', 'r', encoding='utf-8') as f:
-    seen_words = Counter(json.load(f))
+with open('seen_lemmas_zh.json', 'r', encoding='utf-8') as f:
+    seen_lemmas = Counter(json.load(f))
 
 filename = rf'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_{CHARSET}_jieba.txt'
 jieba.load_userdict(filename)
 
-# Total words
+# Total lemmas
 seg_text = list(jieba.cut(fulltext, cut_all=False))
-word_list = [word for word in seg_text if word in cedict] # Keep "real" words
-word_list_new = [word for word in word_list if word not in seen_words]
+lemma_list = [lemma for lemma in seg_text if lemma in cedict] # Keep "real" lemmas
+lemma_list_new = [lemma for lemma in lemma_list if lemma not in seen_lemmas]
 
-# Unique words
+# Unique lemmas
 seg_counter = Counter(seg_text)
-unique_words = {k: v for k, v in Counter(word_list).most_common()}
-print([k for k in seg_counter if k not in unique_words], '\n') # Should be mostly mis-segmented words
+unique_lemmas = {k: v for k, v in Counter(lemma_list).most_common()}
+print([k for k in seg_counter if k not in unique_lemmas], '\n') # Should be mostly mis-segmented lemmas
 
-# New words
-new_words = [k for k in unique_words if k not in seen_words]
+# New lemmas
+new_lemmas = [k for k in unique_lemmas if k not in seen_lemmas]
 
 # Display stats
-print(f'unique_words: {len(unique_words)}')
-print(f'new_words: {len(new_words)}')
+print(f'unique_lemmas: {len(unique_lemmas)}')
+print(f'new_lemmas: {len(new_lemmas)}')
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Update Records
 # └─────────────────────────────────────────────────────────────────────────────
-# Update seen characters and words
+# Update seen characters and lemmas
 seen_chars += Counter(unique_chars)
-seen_words += Counter(unique_words)
+seen_lemmas += Counter(unique_lemmas)
 seen_chars = dict(seen_chars.most_common()) # Keep sorted by freq
-seen_words = dict(seen_words.most_common()) # Keep sorted by freq
+seen_lemmas = dict(seen_lemmas.most_common()) # Keep sorted by freq
 
 with open('seen_chars_zh.json', 'w+', newline='\n', encoding='utf-8') as f:
     json.dump(seen_chars, f, indent=2, ensure_ascii=False)
 
-with open('seen_words_zh.json', 'w+', newline='\n', encoding='utf-8') as f:
-    json.dump(seen_words, f, indent=2, ensure_ascii=False)
+with open('seen_lemmas_zh.json', 'w+', newline='\n', encoding='utf-8') as f:
+    json.dump(seen_lemmas, f, indent=2, ensure_ascii=False)
 
 # Update seen content records
 with open('seen_content_zh.json', 'r', encoding='utf-8') as f:
@@ -99,15 +99,15 @@ content_summary = {'time': f'{datetime.now():%Y-%m-%d %H:%M:%S}',
                    'type': CONTENT_TYPE,
                    '#c': total_chars,
                    '#cn': len(new_chars),
-                   '#wn': len(new_words),
+                   '#ln': len(new_lemmas),
                    '%cn': round(len(new_chars) / len(unique_chars), 2),
-                   '%wn': round(len(word_list_new) / len(word_list), 2),
+                   '%ln': round(len(lemma_list_new) / len(lemma_list), 2),
                    '#cq': len(unique_chars),
-                   '#wq': len(unique_words),
+                   '#lq': len(unique_lemmas),
                    'cn': ''.join(new_chars),
-                   'wn': '|'.join(new_words),
+                   'ln': '|'.join(new_lemmas),
                    'cq': ''.join(unique_chars.keys()),
-                   'wq': '|'.join(unique_words.keys()),
+                   'lq': '|'.join(unique_lemmas.keys()),
                    }
 seen_content[TITLE] = content_summary
 
