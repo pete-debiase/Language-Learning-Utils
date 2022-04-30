@@ -13,9 +13,9 @@ from common import is_cjk_ideograph
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Patent Translation 2014-2020'
-INPUT_FILE = r'dummy.txt'
-CONTENT_TYPE = 'work'
+TITLE = 'FLCL'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\FLCL.txt'
+CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
