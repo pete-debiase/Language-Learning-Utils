@@ -9,10 +9,10 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\target_words.txt'
+TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\FLCL\target_words_non-jouyou_2022.txt'
 TARGET_DURATION_MS = 11000
 
-root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\\'
+root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\FLCL\\'
 root_srt = root_orig + 'subs_ja/srt/'
 root_filtered = root_orig + 'subs_ja/filtered/'
 
@@ -47,6 +47,9 @@ def build_out_context(srt: pysrt.SubRipFile, i: int, main_index: int) -> pysrt.S
             k = oscillator[1]
         j += 1
 
+        # Failsafe
+        if j > len(srt): break
+
         # Handle BOF/EOF issues
         try:
             candidate_sub = srt[i + k]
@@ -71,6 +74,7 @@ def build_out_context(srt: pysrt.SubRipFile, i: int, main_index: int) -> pysrt.S
     return new_sub
 
 # Main loop
+total_subs = 0
 for filename in srt_files:
     filtered_subs = []
     srt = pysrt.open(root_srt + filename)
@@ -86,10 +90,14 @@ for filename in srt_files:
                 main_index += 1
 
     if filtered_subs:
+        for sub in filtered_subs:
+            sub.text = sub.text_without_tags.replace('\n', ' ')
         srt.data = filtered_subs
         output_filename = root_filtered + filename
         srt.save(output_filename, encoding='utf-8')
         mean_duration = mean([sub.end.ordinal - sub.start.ordinal for sub in filtered_subs])
+        total_subs += len(filtered_subs)
 
 print(target_words)
 print(mean_duration)
+print(total_subs)
