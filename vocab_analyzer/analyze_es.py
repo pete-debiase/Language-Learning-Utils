@@ -24,7 +24,7 @@ NONLEMMAS = {'.', '[', ']', ',', '?', '¿', '-', '¡', '!', '…', '“', '”'}
 with open(INPUT_FILE, 'r', encoding='utf-8') as f:
     fulltext = f.read().lower()
     fulltext = re.sub(r'( |\.|,)\d+( |\.|,)', ' ', fulltext) # Discard stand-alone numbers.
-    fulltext = fulltext.split('\n')
+    fulltext = fulltext.replace('\n', ' ')
 
 with open('seen_lemmas_es.json', 'r', encoding='utf-8') as f:
     seen_lemmas = Counter(json.load(f))
@@ -32,11 +32,9 @@ with open('seen_lemmas_es.json', 'r', encoding='utf-8') as f:
 # Total lemmas
 nlp = spacy.load('es_dep_news_trf')
 
-lemmas = []
-for line in fulltext:
-    tokens = nlp(line)
-    lemmas.extend([t.lemma_ for t in tokens])
-lemmas = [l for l in lemmas if l and l not in NONLEMMAS]
+tokens = nlp(fulltext)
+lemmas = [t.lemma_ for t in tokens]
+lemmas = [l.strip() for l in lemmas if l and l not in NONLEMMAS]
 
 lemmas_new = [l for l in lemmas if l not in seen_lemmas]
 
