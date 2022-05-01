@@ -9,10 +9,10 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\FLCL\target_words_non-jouyou_2022.txt'
+TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\target_words.txt'
 TARGET_DURATION_MS = 11000
 
-root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\FLCL\\'
+root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\\'
 root_srt = root_orig + 'subs_ja/srt/'
 root_filtered = root_orig + 'subs_ja/filtered/'
 

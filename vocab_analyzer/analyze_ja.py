@@ -13,8 +13,8 @@ import haitou as ht
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Claymore'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Claymore.txt'
+TITLE = 'Black Lagoon'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Black Lagoon.txt'
 CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
