@@ -13,8 +13,8 @@ import haitou as ht
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Ajin'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Ajin.txt'
+TITLE = 'Claymore'
+INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Claymore.txt'
 CONTENT_TYPE = 'show'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
@@ -76,7 +76,7 @@ print(f'unique_lemmas: {len(unique_lemmas)}')
 # └─────────────────────────────────────────────────────────────────────────────
 # Find fancy words that contain non-jouyou kanji
 vocab = []
-fancy_kanji = [c for c in unique_chars if not ht.is_jouyou(c)]
+fancy_kanji = list(set(c for c in new_chars) | set(c for c in unique_chars if not ht.is_jouyou(c)))
 for word in unique_words:
     contains_fanciness = any([c in word for c in fancy_kanji])
     if contains_fanciness: vocab.append(word)
