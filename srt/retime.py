@@ -1,13 +1,25 @@
 #!/usr/bin/env python3
 """Retime SRT files"""
+import os
 
 import pysrt
 
 # ┌─────────────────────────────────────────────────────────────────────────────
-# │ Setup
+# │ Individual
 # └─────────────────────────────────────────────────────────────────────────────
-input_filename = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Ajin\subs_ja\srt\Ajin_S01E06_ja.srt'
-output_filename = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Ajin\subs_ja\retimed\Ajin_S01E06_ja.srt'
-srt = pysrt.open(input_filename)
-srt.shift(seconds=12.2)
-srt.save(output_filename, encoding='utf-8')
+# filename = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Ajin\subs_ja\retimed2\Ajin_S01E05_ja.srt'
+# srt = pysrt.open(filename)
+# srt.shift(seconds=-0.7)
+# srt.save(filename.replace('retimed', 'retimedwell'), encoding='utf-8')
+
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ Directory
+# └─────────────────────────────────────────────────────────────────────────────
+start_dir = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Ajin\subs_ja\retimed2\\'
+for root, dirs, files in os.walk(start_dir):
+    my_files = [root + f for f in files]
+
+for file in my_files:
+    srt = pysrt.open(file)
+    srt.shift(seconds=-12.9)
+    srt.save(file, encoding='utf-8')
