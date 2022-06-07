@@ -9,10 +9,10 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\target_words.txt'
+TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\target_words.txt'
 TARGET_DURATION_MS = 11000
 
-root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\\'
+root_orig = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\\'
 root_srt = root_orig + 'subs_ja/srt/'
 root_filtered = root_orig + 'subs_ja/filtered/'
 
@@ -99,5 +99,5 @@ for filename in srt_files:
         total_subs += len(filtered_subs)
 
 print(target_words)
-print(mean_duration)
+print(round(mean_duration, 0))
 print(total_subs)

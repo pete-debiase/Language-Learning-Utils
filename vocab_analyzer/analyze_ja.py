@@ -13,9 +13,9 @@ from haitou import Haitou
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Black Lagoon'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\JA\_fulltexts\Black Lagoon.txt'
-CONTENT_TYPE = 'show'
+TITLE = 'Cowboy Bebop'
+INPUT_FILE = r'C:\~\Languages\JA\_fulltexts\Cowboy_Bebop.txt'
+CONTENT_TYPE = 'show + movie'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
@@ -34,7 +34,7 @@ total_chars = len(text_no_whitespace)
 # Unique characters
 counter = Counter(fulltext)
 unique_chars = {k: v for k, v in counter.most_common() if is_cjk_ideograph(k)}
-print([k for k in counter if k not in unique_chars], '\n') # Should only be [a-zA-Z0-9] plus punctuation
+print([k for k in counter if k not in unique_chars], '\n') # Should only be [a-zA-Z0-9], punctuation, hiragana/katakana
 
 # New characters
 new_chars = [k for k in unique_chars if k not in seen_chars]
@@ -44,8 +44,8 @@ unique_char_report = kanken_analysis_relative(unique_chars)
 new_char_report = kanken_analysis_relative(new_chars)
 
 print(f'total_chars: {total_chars}')
-print(new_char_report)
-print(unique_char_report)
+print(f'new_chars: {new_char_report}')
+print(f'unque_chars: {unique_char_report}\n')
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Lemma-Based Analysis

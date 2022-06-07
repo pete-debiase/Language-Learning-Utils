@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scratch"""
+"""Convert VTT to SRT"""
 
 import os
 import re
@@ -10,8 +10,8 @@ import webvtt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Claymore'
-root_orig = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Claymore\\'
+TITLE = 'Cowboy_Bebop'
+root_orig = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\\'
 root_vtt = root_orig + 'subs_ja/vtt/'
 root_srt = root_orig + 'subs_ja/srt/'
 

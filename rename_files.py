@@ -4,14 +4,14 @@
 import os
 import re
 
-root = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Claymore\mp4'
+root = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\subs_ja\vtt'
 os.chdir(root)
 
-match_pattern = '.mp4'
+match_pattern = '.vtt'
 filenames = [f for f in os.listdir() if match_pattern in f]
 
-find = r'\[(.*?)\.(.*?)\](.*).mp4'
-replace = r'Claymore_\1\2.mp4'
+find = r'Cowboy\.Bebop\.(.*?)\.(.*)'
+replace = r'Cowboy_Bebop_\1_ja.vtt'
 for f in filenames:
     print(re.sub(find, replace, f))
     os.rename(f, re.sub(find, replace, f))
