@@ -4,17 +4,15 @@
 import re
 
 from airium import Airium
-from fugashi import fugashi
 from jamdict import Jamdict
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\target_words.txt'
-ANKI_TSV = r'C:\Users\pete\ALL\Languages\JA\SUBS2SRS\Black Lagoon\Black_Lagoon.tsv'
+TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\target_words.txt'
+ANKI_TSV = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\Cowboy_Bebop.tsv'
 OUTPUT_FILE = ANKI_TSV.replace('.tsv', '_tagged.tsv')
 jam = Jamdict()
-tagger = fugashi.Tagger()
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Jamdict Lookup
@@ -61,12 +59,7 @@ for line in tsv:
     for word in target_words:
         if word in line[3]:
             # Get dictionary definitions
-            try:
-                lemmas = [w.feature.lemma for w in tagger(word) if w.feature.lemma]
-                golden_boy = lemmas[0] if lemmas else word
-                jam_table = build_jamdict_table(jam, golden_boy)
-            except IndexError:
-                jam_table = 'no_jam'
+            jam_table = build_jamdict_table(jam, word)
 
             line[3] = line[3].replace(word, f'<span class="target">{word}</span>')
             # target_words.remove(word)
