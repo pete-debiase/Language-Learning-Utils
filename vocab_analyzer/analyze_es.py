@@ -11,8 +11,8 @@ import spacy
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Orbiter9'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\ES\_fulltexts\Orbiter9.txt'
+TITLE = 'Contratiempo'
+INPUT_FILE = r'C:\~\Languages\ES\_fulltexts\Contratiempo.txt'
 CONTENT_TYPE = 'movie'
 
 NONLEMMAS = {'.', '[', ']', ',', '?', '¿', '-', '¡', '!', '…', '“', '”'}

@@ -2,7 +2,6 @@
 """Convert VTT to SRT"""
 
 import os
-import re
 
 import pysrt
 import webvtt
@@ -10,10 +9,11 @@ import webvtt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Cowboy_Bebop'
-root_orig = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\\'
-root_vtt = root_orig + 'subs_ja/vtt/'
-root_srt = root_orig + 'subs_ja/srt/'
+LANGUAGE = '_es'
+TITLE = 'Contratiempo'
+root_orig = r'C:\~\Languages\ES\SUBS2SRS\Contratiempo\\'
+root_vtt = root_orig + 'subs/vtt/'
+root_srt = root_orig + 'subs/srt/'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Convert
@@ -22,10 +22,8 @@ for root, dirs, files in os.walk(root_vtt):
     vtt_files = [root + f for f in files]
 
 for filename in vtt_files:
-    season_ep = re.findall(r'_(S.*?)_', filename)[0]
     vtt = webvtt.read(filename)
-
-    output_filename = root_srt + f'{TITLE}_{season_ep}_ja.srt'
+    output_filename = root_srt + os.path.basename(filename).replace('.vtt', '.srt')
     with open(output_filename, 'w+', newline='\n', encoding='utf-8') as file:
         vtt.write(file, format='srt')
 
@@ -33,7 +31,7 @@ for filename in vtt_files:
 # │ Clean SRT + Generate Fulltext
 # └─────────────────────────────────────────────────────────────────────────────
 for root, dirs, files in os.walk(root_srt):
-    srt_files = [root + f for f in files]
+    srt_files = [root + f for f in files if LANGUAGE in f]
 
 fulltext = []
 for filename in srt_files:
