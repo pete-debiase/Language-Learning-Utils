@@ -11,8 +11,8 @@ import spacy
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Mirage'
-INPUT_FILE = r'C:\~\Languages\ES\_fulltexts\Mirage.txt'
+TITLE = 'The Invisible Guardian'
+INPUT_FILE = r'C:\~\Languages\ES\_fulltexts\The Invisible Guardian.txt'
 CONTENT_TYPE = 'movie'
 
 NONLEMMAS = {'.', '[', ']', ',', '?', '¿', '-', '¡', '!', '…', '“', '”'}

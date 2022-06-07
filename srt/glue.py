@@ -9,7 +9,7 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-root = r'C:\~\Languages\ES\SUBS2SRS\Mirage'
+root = r'C:\~\Languages\ES\SUBS2SRS\The Invisible Guardian'
 root_srt = root + '/subs/srt/'
 root_glued = root + '/subs/glued/'
 TARGET_DURATION_MS = 15000
