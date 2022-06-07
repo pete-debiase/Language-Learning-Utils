@@ -74,7 +74,7 @@ print(f'unique_lemmas: {len(unique_lemmas)}')
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Create Vocab Candidate List
 # └─────────────────────────────────────────────────────────────────────────────
-# Find fancy words that contain non-jouyou kanji
+# Find fancy words that contain new or non-jouyou kanji
 vocab = []
 fancy_kanji = list(set(c for c in new_chars) | set(c for c in unique_chars if not ht.is_jouyou(c)))
 for word in unique_words:
