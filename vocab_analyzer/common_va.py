@@ -5,7 +5,7 @@ import re
 
 import zhon.hanzi as zh
 
-import haitou as ht
+from haitou import Haitou
 
 
 def is_cjk_ideograph(char: str):
@@ -14,6 +14,7 @@ def is_cjk_ideograph(char: str):
 
 def kanken_analysis_relative(chars) -> str:
     """Analyze relative distribution of specified kanji by kanken level."""
+    ht = Haitou()
     n_total = len(chars)
     n_jouyou = len([c for c in chars if ht.is_jouyou(c)])
     n_level1kj = len([c for c in chars if ht.is_level_1kj(c)])
@@ -34,6 +35,7 @@ def kanken_analysis_relative(chars) -> str:
 
 def kanken_analysis_absolute(chars) -> str:
     """Analyze absolute distribution of specified kanji by kanken level."""
+    ht = Haitou()
     n_local = len(chars)
     n_jouyou = len([c for c in chars if ht.is_jouyou(c)])
     n_level1kj = len([c for c in chars if ht.is_level_1kj(c)])

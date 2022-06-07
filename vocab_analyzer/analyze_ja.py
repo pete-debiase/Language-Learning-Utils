@@ -8,7 +8,7 @@ import json
 import fugashi
 
 from common_va import *
-import haitou as ht
+from haitou import Haitou
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
@@ -75,7 +75,7 @@ print(f'unique_lemmas: {len(unique_lemmas)}')
 # │ Create Vocab Candidate List
 # └─────────────────────────────────────────────────────────────────────────────
 # Find fancy words that contain new or non-jouyou kanji
-vocab = []
+vocab, ht = [], Haitou()
 fancy_kanji = list(set(c for c in new_chars) | set(c for c in unique_chars if not ht.is_jouyou(c)))
 for word in unique_words:
     contains_fanciness = any([c in word for c in fancy_kanji])
