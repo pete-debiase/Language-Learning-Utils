@@ -9,10 +9,10 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-root = r'C:\~\Languages\ES\SUBS2SRS\El Bar'
+root = r'C:\~\Languages\ES\SUBS2SRS\Mirage'
 root_srt = root + '/subs/srt/'
 root_glued = root + '/subs/glued/'
-TARGET_DURATION_MS = 12000
+TARGET_DURATION_MS = 15000
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Glue SRT

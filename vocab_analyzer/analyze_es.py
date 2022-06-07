@@ -11,8 +11,8 @@ import spacy
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'El Bar'
-INPUT_FILE = r'C:\~\Languages\ES\_fulltexts\El Bar.txt'
+TITLE = 'Mirage'
+INPUT_FILE = r'C:\~\Languages\ES\_fulltexts\Mirage.txt'
 CONTENT_TYPE = 'movie'
 
 NONLEMMAS = {'.', '[', ']', ',', '?', '¿', '-', '¡', '!', '…', '“', '”'}
