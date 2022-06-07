@@ -11,8 +11,8 @@ import spacy
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Contratiempo'
-INPUT_FILE = r'C:\~\Languages\ES\_fulltexts\Contratiempo.txt'
+TITLE = 'El Bar'
+INPUT_FILE = r'C:\~\Languages\ES\_fulltexts\El Bar.txt'
 CONTENT_TYPE = 'movie'
 
 NONLEMMAS = {'.', '[', ']', ',', '?', '¿', '-', '¡', '!', '…', '“', '”'}

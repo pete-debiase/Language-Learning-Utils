@@ -10,8 +10,8 @@ import webvtt
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 LANGUAGE = '_es'
-TITLE = 'Contratiempo'
-root_orig = r'C:\~\Languages\ES\SUBS2SRS\Contratiempo\\'
+TITLE = 'El Bar'
+root_orig = r'C:\~\Languages\ES\SUBS2SRS\El Bar\\'
 root_vtt = root_orig + 'subs/vtt/'
 root_srt = root_orig + 'subs/srt/'
 

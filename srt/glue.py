@@ -9,9 +9,10 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-root_srt = r'C:\~\Languages\ES\SUBS2SRS\Contratiempo\subs\srt/'
-root_glued = r'C:\~\Languages\ES\SUBS2SRS\Contratiempo\subs\glued/'
-TARGET_DURATION_MS = 13500
+root = r'C:\~\Languages\ES\SUBS2SRS\El Bar'
+root_srt = root + '/subs/srt/'
+root_glued = root + '/subs/glued/'
+TARGET_DURATION_MS = 12000
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Glue SRT
