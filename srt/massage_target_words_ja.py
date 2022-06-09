@@ -6,7 +6,7 @@ import re
 from airium import Airium
 from jamdict import Jamdict
 
-TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\target_words.txt'
+TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Violet Evergarden\target_words.txt'
 jam = Jamdict()
 
 def build_jamdict_table(jam: Jamdict, word: str) -> str:

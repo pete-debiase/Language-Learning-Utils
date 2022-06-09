@@ -9,8 +9,8 @@ from jamdict import Jamdict
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\target_words.txt'
-ANKI_TSV = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\Cowboy_Bebop.tsv'
+TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Violet Evergarden\target_words.txt'
+ANKI_TSV = r'C:\~\Languages\JA\SUBS2SRS\Violet Evergarden\Violet_Evergarden.tsv'
 OUTPUT_FILE = ANKI_TSV.replace('.tsv', '_tagged.tsv')
 jam = Jamdict()
 

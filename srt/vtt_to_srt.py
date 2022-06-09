@@ -10,11 +10,11 @@ import webvtt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-LANGUAGE = '_es'
-TITLE = 'Tu Hijo'
-root_orig = rf'C:\~\Languages\ES\SUBS2SRS\{TITLE}\\'
-root_vtt = root_orig + 'subs/vtt/'
-root_srt = root_orig + 'subs/srt/'
+LANGUAGE = '_ja'
+TITLE = 'Violet Evergarden'
+root_orig = rf'C:\~\Languages\JA\SUBS2SRS\Violet Evergarden\\'
+root_vtt = root_orig + 'subs_ja/vtt/'
+root_srt = root_orig + 'subs_ja/srt/'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Convert

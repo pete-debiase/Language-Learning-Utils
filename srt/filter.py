@@ -9,10 +9,10 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\target_words.txt'
+TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Violet Evergarden\target_words.txt'
 TARGET_DURATION_MS = 11000
 
-root_orig = r'C:\~\Languages\JA\SUBS2SRS\Cowboy Bebop\\'
+root_orig = r'C:\~\Languages\JA\SUBS2SRS\Violet Evergarden\\'
 root_srt = root_orig + 'subs_ja/srt/'
 root_filtered = root_orig + 'subs_ja/filtered/'
 

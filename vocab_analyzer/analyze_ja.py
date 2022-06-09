@@ -13,9 +13,9 @@ from haitou import Haitou
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Cowboy Bebop'
-INPUT_FILE = r'C:\~\Languages\JA\_fulltexts\Cowboy_Bebop.txt'
-CONTENT_TYPE = 'show + movie'
+TITLE = 'Violet Evergarden'
+INPUT_FILE = rf'C:\~\Languages\JA\SUBS2SRS\{TITLE}\fulltext.txt'
+CONTENT_TYPE = 'show + movies'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
