@@ -2,6 +2,7 @@
 """Convert VTT to SRT"""
 
 import os
+import re
 
 import pysrt
 import webvtt
@@ -10,7 +11,7 @@ import webvtt
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 LANGUAGE = '_es'
-TITLE = 'Akelarre'
+TITLE = 'La Noche De 12 Años'
 root_orig = rf'C:\~\Languages\ES\SUBS2SRS\{TITLE}\\'
 root_vtt = root_orig + 'subs/vtt/'
 root_srt = root_orig + 'subs/srt/'
@@ -40,6 +41,9 @@ for filename in srt_files:
         sub.text = sub.text_without_tags
         sub.text = sub.text.replace('&lrm;', '')
         sub.text = sub.text.replace('\n', ' ')
+        sub.text = re.sub(r'^-', ' ', sub.text)
+        sub.text = sub.text.replace(' -', ' ')
+        sub.text = sub.text.strip()
     srt.save(filename, encoding='utf-8')
     fulltext.extend([_.text for _ in srt])
 
