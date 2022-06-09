@@ -11,7 +11,7 @@ import webvtt
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 LANGUAGE = '_es'
-TITLE = 'La Noche De 12 Años'
+TITLE = 'Tu Hijo'
 root_orig = rf'C:\~\Languages\ES\SUBS2SRS\{TITLE}\\'
 root_vtt = root_orig + 'subs/vtt/'
 root_srt = root_orig + 'subs/srt/'

@@ -11,7 +11,7 @@ import spacy
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'La Noche De 12 Años'
+TITLE = 'Tu Hijo'
 INPUT_FILE = rf'C:\~\Languages\ES\SUBS2SRS\{TITLE}\fulltext.txt'
 CONTENT_TYPE = 'movie'
 

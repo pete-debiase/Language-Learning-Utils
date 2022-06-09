@@ -9,7 +9,7 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-root = r'C:\~\Languages\ES\SUBS2SRS\La Noche De 12 Años'
+root = r'C:\~\Languages\ES\SUBS2SRS\Tu Hijo'
 root_srt = root + '/subs/srt/'
 root_glued = root + '/subs/glued/'
 TARGET_DURATION_MS = 15000
