@@ -10,8 +10,8 @@ import webvtt
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 LANGUAGE = '_es'
-TITLE = 'The Invisible Guardian'
-root_orig = r'C:\~\Languages\ES\SUBS2SRS\The Invisible Guardian\\'
+TITLE = 'Tarde Para La Ira'
+root_orig = rf'C:\~\Languages\ES\SUBS2SRS\{TITLE}\\'
 root_vtt = root_orig + 'subs/vtt/'
 root_srt = root_orig + 'subs/srt/'
 
