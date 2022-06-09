@@ -11,8 +11,8 @@ import spacy
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Tarde Para La Ira'
-INPUT_FILE = rf'C:\~\Languages\ES\_fulltexts\{TITLE}.txt'
+TITLE = 'Akelarre'
+INPUT_FILE = rf'C:\~\Languages\ES\SUBS2SRS\{TITLE}\fulltext.txt'
 CONTENT_TYPE = 'movie'
 
 NONLEMMAS = {'.', '[', ']', ',', '?', '¿', '-', '¡', '!', '…', '“', '”'}

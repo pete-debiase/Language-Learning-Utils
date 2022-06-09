@@ -9,7 +9,7 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-root = r'C:\~\Languages\ES\SUBS2SRS\Tarde Para La Ira'
+root = r'C:\~\Languages\ES\SUBS2SRS\Akelarre'
 root_srt = root + '/subs/srt/'
 root_glued = root + '/subs/glued/'
 TARGET_DURATION_MS = 15000
