@@ -5,7 +5,7 @@
 
 import datetime
 import os
-import srt
+import subs
 
 # root_path = r'C:\Users\Pete\ALL\Japanese\SUBS2SRS\Movies and Shows\FLCL\JP Subs'
 # match_pattern = 'FLCL'
@@ -55,7 +55,7 @@ import srt
 
 with open(r'C:\Users\Pete\Downloads\REC.4.Apocalypse.2014.720p.BluRay.x264-SPLiTSViLLE.srt', 'r', encoding='utf-8') as file:
     subs = file.read()
-    subs = list(srt.parse(subs))
+    subs = list(subs.parse(subs))
 
     for sub in subs:
         sub.start = sub.start - datetime.timedelta(0, 4, 300)
@@ -63,4 +63,4 @@ with open(r'C:\Users\Pete\Downloads\REC.4.Apocalypse.2014.720p.BluRay.x264-SPLiT
 
 output_path = r'C:\Users\Pete\Downloads\REC.4.Apocalypse.2014.720p.BluRay.x264-SPLiTSViLLE_retimed4.srt'
 with open(output_path, 'w+', encoding='utf-8') as file:
-    file.write(srt.compose(subs))
+    file.write(subs.compose(subs))
