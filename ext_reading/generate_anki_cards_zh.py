@@ -11,13 +11,13 @@ from pinyin_tools import tonetag
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-SOURCE = '我們是朋友嗎？'
-INPUT_FILE = r'C:\Users\pete\Dropbox\Just Friends.rd_cjk'
+SOURCE = '我的老師是火星人'
+INPUT_FILE = r'C:\~\Media\Books\Reads In Progress\My Teacher Is a Martian.rd_cjk'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ CEDICT Lookup
 # └─────────────────────────────────────────────────────────────────────────────
-filename = r'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_ts.json'
+filename = r'C:\~\Languages\ZH\CEDICT\cedict_ts.json'
 with open(filename, 'r', encoding='utf-8') as f:
     cedict = json.load(f)
 
