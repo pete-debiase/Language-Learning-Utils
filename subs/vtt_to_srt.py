@@ -11,7 +11,7 @@ import webvtt
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 LANGUAGE = '_ja'
-TITLE = 'Neon Genesis Evangelion'
+TITLE = '86 EIGHTY-SIX'
 root_orig = rf'C:\~\Languages\JA\SUBS2SRS\{TITLE}\\'
 root_vtt = root_orig + 'subs_ja/vtt/'
 root_srt = root_orig + 'subs_ja/srt/'

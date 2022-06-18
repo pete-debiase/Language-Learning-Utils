@@ -13,9 +13,9 @@ from haitou import Haitou
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Neon Genesis Evangelion'
-INPUT_FILE = rf'C:\~\Languages\JA\_fulltexts\Neon Genesis Evangelion.txt'
-CONTENT_TYPE = '26 eps + 5 movies'
+TITLE = '86 EIGHTY-SIX'
+INPUT_FILE = rf'C:\~\Languages\JA\_fulltexts\86 EIGHTY-SIX.txt'
+CONTENT_TYPE = '23 eps'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis
@@ -76,11 +76,11 @@ print(f'unique_lemmas: {len(unique_lemmas)}')
 # └─────────────────────────────────────────────────────────────────────────────
 # Find fancy words that contain new or non-jouyou kanji
 vocab, ht = [], Haitou()
-fancy_kanji = list(set(c for c in new_chars) | set(c for c in unique_chars if not ht.is_jouyou(c)))
+fancy_kanji = list(set(c for c in new_chars))
 for word in unique_words:
     contains_fanciness = any([c in word for c in fancy_kanji])
     if contains_fanciness: vocab.append(word)
-print(vocab)
+print('vocab_candidates: ', vocab)
 
 with open('vocab_raw.txt', 'w+', newline='\n', encoding='utf-8') as f:
     f.write('\n'.join(vocab))

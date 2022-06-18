@@ -9,10 +9,10 @@ import pysrt
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\Neon Genesis Evangelion\target_words.txt'
+TARGET_WORD_FILE = r'C:\~\Languages\JA\SUBS2SRS\86 EIGHTY-SIX\target_words.txt'
 TARGET_DURATION_MS = 11000
 
-root_orig = r'C:\~\Languages\JA\SUBS2SRS\Neon Genesis Evangelion\\'
+root_orig = r'C:\~\Languages\JA\SUBS2SRS\86 EIGHTY-SIX\\'
 root_srt = root_orig + 'subs_ja/srt/'
 root_filtered = root_orig + 'subs_ja/filtered/'
 
