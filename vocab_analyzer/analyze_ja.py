@@ -13,9 +13,9 @@ from haitou import Haitou
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = 'Violet Evergarden'
-INPUT_FILE = rf'C:\~\Languages\JA\SUBS2SRS\{TITLE}\fulltext.txt'
-CONTENT_TYPE = 'show + movies'
+TITLE = 'Neon Genesis Evangelion'
+INPUT_FILE = rf'C:\~\Languages\JA\_fulltexts\Neon Genesis Evangelion.txt'
+CONTENT_TYPE = '26 eps + 5 movies'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Character-Based Analysis

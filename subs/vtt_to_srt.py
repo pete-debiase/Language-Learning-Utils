@@ -11,8 +11,8 @@ import webvtt
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 LANGUAGE = '_ja'
-TITLE = 'Violet Evergarden'
-root_orig = rf'C:\~\Languages\JA\SUBS2SRS\Violet Evergarden\\'
+TITLE = 'Neon Genesis Evangelion'
+root_orig = rf'C:\~\Languages\JA\SUBS2SRS\{TITLE}\\'
 root_vtt = root_orig + 'subs_ja/vtt/'
 root_srt = root_orig + 'subs_ja/srt/'
 
@@ -47,5 +47,5 @@ for filename in srt_files:
     srt.save(filename, encoding='utf-8')
     fulltext.extend([_.text for _ in srt])
 
-with open(root_orig + f'fulltext.txt', 'w+', newline='\n', encoding='utf-8') as f:
+with open(root_orig + f'{TITLE}.txt', 'w+', newline='\n', encoding='utf-8') as f:
     f.write('\n'.join(fulltext))
