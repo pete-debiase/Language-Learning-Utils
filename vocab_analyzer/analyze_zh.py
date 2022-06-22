@@ -8,13 +8,13 @@ import re
 
 import jieba
 
-from common import is_cjk_ideograph
+from common_va import is_cjk_ideograph
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-TITLE = '我的老師是火星人'
-INPUT_FILE = r'C:\Users\pete\ALL\Languages\ZH\_fulltexts\My Teacher Is a Martian.txt'
+TITLE = '小明'
+INPUT_FILE = r'C:\~\Languages\ZH\_fulltexts\Xiao Ming, Boy Sherlock.txt'
 CONTENT_TYPE = 'book'
 CHARSET = 't' # t = traditional, s = simplified
 
@@ -49,14 +49,14 @@ print(f'new_chars: {len(new_chars)}')
 # │ Lemma-Based Analysis
 # └─────────────────────────────────────────────────────────────────────────────
 # Load up necessary files
-filename = r'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_ts.json'
+filename = r'C:\~\Languages\ZH\CEDICT\cedict_ts.json'
 with open(filename, 'r', encoding='utf-8') as f:
     cedict = json.load(f)
 
 with open('seen_lemmas_zh.json', 'r', encoding='utf-8') as f:
     seen_lemmas = Counter(json.load(f))
 
-filename = rf'C:\Users\pete\ALL\Languages\ZH\CEDICT\cedict_{CHARSET}_jieba.txt'
+filename = rf'C:\~\Languages\ZH\CEDICT\cedict_{CHARSET}_jieba.txt'
 jieba.load_userdict(filename)
 
 # Total lemmas

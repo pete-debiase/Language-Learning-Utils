@@ -11,8 +11,8 @@ from pinyin_tools import tonetag
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
-SOURCE = '我的老師是火星人'
-INPUT_FILE = r'C:\~\Media\Books\Reads In Progress\My Teacher Is a Martian.rd_cjk'
+SOURCE = '小明'
+INPUT_FILE = r'C:\~\Languages\ZH\_fulltexts\Xiao Ming, Boy Sherlock.rd_cjk'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ CEDICT Lookup
