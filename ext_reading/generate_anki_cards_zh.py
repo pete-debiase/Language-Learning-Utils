@@ -12,7 +12,7 @@ from pinyin_tools import tonetag
 # │ Setup
 # └─────────────────────────────────────────────────────────────────────────────
 SOURCE = '小明'
-INPUT_FILE = r'C:\~\Languages\ZH\_fulltexts\Xiao Ming, Boy Sherlock.rd_cjk'
+INPUT_FILE = r'C:\Users\pete\Dropbox\Xiao Ming, Boy Sherlock.rd_cjk'
 
 # ┌─────────────────────────────────────────────────────────────────────────────
 # │ CEDICT Lookup
